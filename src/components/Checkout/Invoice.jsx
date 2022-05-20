@@ -12,7 +12,7 @@ const Invoice = () => {
 
   useEffect(() => {
     if(request) return;
-    axios.get(`http://localhost:5000/invoice/${id}`)
+    axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/invoice/${id}`)
     .then(res => {
         setRequest(res.data);
     }, rej => console.log(rej));
@@ -20,7 +20,7 @@ const Invoice = () => {
 
   const handleToken = (token,addresses) => {
     const price = request.invoice;
-    axios.post(`http://localhost:5000/invoice/${id}`, {price, token})
+    axios.post(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/invoice/${id}`, {price, token})
     .then(res => {
         console.log(res);
         if(res.data === "success"){

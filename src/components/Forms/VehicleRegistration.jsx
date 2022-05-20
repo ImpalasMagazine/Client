@@ -25,7 +25,7 @@ const VehicleRegistration = () => {
       data.append(key, form[key]);
     }
 
-    axios.post("http://localhost:5000/register-vehicle",data, {
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/register-vehicle",data, {
       header: {
         contentType: "multipart/form-data"
       }
@@ -48,7 +48,7 @@ const VehicleRegistration = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:5000/shows")
+    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/shows")
     .then(res => {
       setShows(res.data);
       setLoaded(true);
@@ -334,6 +334,10 @@ const VehicleRegistration = () => {
           <input accept="image/png, image/jpeg" onChange = {handleChange} type = 'file' name = 'img1' required/>
           <input accept="image/png, image/jpeg" onChange = {handleChange} type = 'file' name = 'img2' required/>
         </div>
+      </div>
+      <div className='form-section'>
+        <h1>Notice</h1>
+        <p>By submitting this form you agree to our terms and conditions. For more info, visit the Terms link in the navigation bar.</p>
       </div>
       <button className = 'submit'>Submit</button>
     </form>

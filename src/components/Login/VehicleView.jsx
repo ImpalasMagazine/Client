@@ -9,7 +9,7 @@ const VehicleView = () => {
   const [data, setData] = useState({});
   const token = localStorage.getItem('token');
 
-  axios.get(`http://localhost:5000/admin/requests/vehicles/${id}`,{
+  axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests/vehicles/${id}`,{
       headers: {
         "auth-token": token
       }

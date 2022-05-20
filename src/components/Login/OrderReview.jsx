@@ -12,7 +12,7 @@ const OrderReview = () => {
   const [link, setLink] = useState("");
   const [service, setService] = useState("");
   const getOrder = async () => {
-    const body = await axios.get(`http://localhost:5000/admin/orders/${id}`,{
+    const body = await axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/orders/${id}`,{
         headers:{
             "auth-token": localStorage.getItem("token")
         }
@@ -30,7 +30,7 @@ const OrderReview = () => {
       setService(e.target.value);
   }
   const handleSubmit = async (e) => {
-    const body = await axios.post(`http://localhost:5000/admin/orders`, {link:link,id:id,service:service}, {
+    const body = await axios.post(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/orders`, {link:link,id:id,service:service}, {
         headers: {
             "auth-token": localStorage.getItem("token")
         }

@@ -16,7 +16,7 @@ const VendorRegistration = ({form}) => {
   const [invoice, setInvoice] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/shows")
+    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/shows")
     .then(res => {
       setShows(res.data);
       setLoaded(true);
@@ -25,7 +25,7 @@ const VendorRegistration = ({form}) => {
 
   const accept = (e) => {
     setLoaded(false);
-    axios.post("http://localhost:5000/admin/requests/vendors/accepted", {id:form._id,invoice:invoice},{
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests/vendors/accepted", {id:form._id,invoice:invoice},{
       headers: {
         "auth-token": token
       }
@@ -45,7 +45,7 @@ const VendorRegistration = ({form}) => {
   }
   const reject = (e) => {
     setLoaded(false);
-    axios.post("http://localhost:5000/admin/requests/vehicles/denied", {id:form._id,message:rejectMessage},{
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests/vehicles/denied", {id:form._id,message:rejectMessage},{
       headers: {
         "auth-token": token
       }

@@ -19,8 +19,8 @@ const AddItem = () => {
     for ( var key in form ) {
       data.append(key, form[key]);
     }
-
-    axios.post("http://localhost:5000/admin/shop", data, {
+    console.log(data);
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shop", data, {
       headers:{
         'auth-token': localStorage.getItem('token')
       }
@@ -31,6 +31,8 @@ const AddItem = () => {
         position: toast.POSITION.TOP_LEFT
       });
     }, err => {
+      console.log(err);
+      setLoaded(true);
       toast("Error. Item could not be added to the shop. Please try again",{
         draggable: true,
         position: toast.POSITION.TOP_LEFT
@@ -58,10 +60,17 @@ const AddItem = () => {
             <input onChange = {handleChange} type="text" name="title" placeholder="Name" required/>
             <input onChange = {handleChange} type = "number" name="price" placeholder="Price" required/>
           </div>
-          <div className='input-row'>
+          <div className='input-row center'>
             <input onChange = {handleChange} accept="image/png, image/jpeg" name="img" type="file" required/>
-            <button onClick = {handleSubmit} className='add'>Add</button>
+            <input className = "sm" onChange = {handleChange} name="stock" type = "number" placeholder='In Stock'/>
           </div>
+          <div className='input-row'>
+            <div className='display'>
+              <input type = "checkbox" value = {true} onChange={handleChange} name = 'clothing'/>
+              <label htmlFor = 'clothing'>Clothing</label>
+            </div>
+          </div>
+          <button className='item-add add'>Add</button>
         </div>
     </form>
   )

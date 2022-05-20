@@ -13,7 +13,7 @@ const EditShow = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/admin/shows/${id}`, {
+    axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shows/${id}`, {
         headers: {
             'auth-token': localStorage.getItem("token")
         }
@@ -26,7 +26,7 @@ const EditShow = () => {
 
   const handleSubmit = (e) => {
       setLoading(true);
-      axios.post(`http://localhost:5000/admin/shows/edit/${id}`, form, {
+      axios.post(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shows/edit/${id}`, form, {
           headers: {
               'auth-token':localStorage.getItem("token")
           }

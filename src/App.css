@@ -21,6 +21,7 @@ html {
   position: relative;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 /*Navbar*/
 .navbar {
@@ -91,9 +92,10 @@ html {
     #ffffff 100%
   );
   display: flex;
+  flex-direction: column;
   min-width: 100vw;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
   padding: 70px 0;
 }
 .home .main {
@@ -114,6 +116,27 @@ html {
 .gallery-link:hover {
   color: #ebc458;
 }
+#gallery {
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  justify-content: center;
+  align-items: center;
+  column-gap: 60px;
+  row-gap: 60px;
+}
+.home > h1 {
+  font-size: 60px;
+  font-family: "cabin";
+  margin: 50px 0;
+}
+#gallery img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: -5px 5px 20px #444444;
+}
+
 .home .main .img-container {
   display: flex;
   flex-direction: column;
@@ -170,10 +193,26 @@ html {
   font-size: 18px;
   font-family: "Oxygen", sans-serif;
 }
-
-#gallery {
+#about {
+  width: calc(100%-100px);
+  height: auto;
+  padding: 40px 100px;
+  margin: 50px 0;
+  background-color: rgb(75, 75, 75);
+  color: white;
+  font-family: "cabin";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
+#about p {
+  font-size: 20px;
+  line-height: 40px;
+}
+#about h1 {
+  font-size: 40px;
+}
 /*End Home*/
 
 /*Forms*/
@@ -620,16 +659,20 @@ fieldset {
   justify-content: center;
   align-items: center;
 }
+.center {
+  align-items: center;
+}
 /*Shop*/
 .shop .main {
   width: 100vw;
-  height: 100vh;
-  padding: 100px 0;
+  min-height: 100vh;
+  padding: 150px 0;
   background: var(--bg);
   display: grid;
   justify-content: center;
   align-items: center;
   grid-template-columns: 35% 35%;
+  row-gap: 200px;
   column-gap: 80px;
 }
 .shop .main .col-1 {
@@ -841,6 +884,9 @@ fieldset {
 .checkout .small {
   display: none;
 }
+.item-add {
+  margin: 30px 0;
+}
 /*MOBILE RESPONSIVE*/
 @media only screen and (max-width: 600px) {
   .navbar {
@@ -904,6 +950,7 @@ fieldset {
   .home {
     all: revert;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -941,6 +988,7 @@ fieldset {
     transform: rotate(0deg);
     z-index: -1;
   }
+
   /*Forms*/
   .form-section {
     min-width: 0;

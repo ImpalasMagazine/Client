@@ -7,11 +7,23 @@ import left from "../../assets/leftbutton.png";
 import right from "../../assets/rightbutton.png";
 import instagram from '../../assets/instagram.png';
 import fb from '../../assets/facebook.png';
+import img1 from '../../assets/gallery/23477E86-.jpg';
+import img2 from '../../assets/gallery/c2dcaab1-a149-4da2-b760-aa959c5d48a4.jpg';
+import img3 from '../../assets/gallery/FB_IMG_1599928298475.jpg';
+import img4 from '../../assets/gallery/FB_IMG_1652634689902.jpg';
+import img5 from '../../assets/gallery/IMG_3658.jpg';
+import img6 from '../../assets/gallery/IMG_3765.JPG';
+import img7 from '../../assets/gallery/IMG_3768.jpg';
+import img8 from '../../assets/gallery/IMG_3793 2.jpg';
+import img9 from '../../assets/gallery/IMG_20200828_104035_371.jpg';
+import img11 from '../../assets/gallery/IMG_20220425_151902_589.jpg';
+import img12 from '../../assets/gallery/IMG_20220425_184109_234.jpg';
 
 const Home = () => {
 
   const [frame, setFrame] = useState(0);
   const images = [Event,Event2];
+  const galleryImages = [img9, img2, img3, img11, img5, img6, img7, img8, img1, img4, img12];
 
   const frameUp = () => {
     frame === images.length - 1 ? setFrame(0) : setFrame(frame+1);
@@ -47,12 +59,35 @@ const Home = () => {
             <div className = "buttons">
               <Link className = "link" to="/register-vehicle">Vehicles</Link>
               <Link className = "link" to="/register-vendor">Vendors</Link>
-              <Link className = "link" to="/register-model">Models</Link>
+              {/*<Link className = "link" to="/register-model">Models</Link>*/}
             </div>
         </div>
       </div>
+      <div id="about">
+        <h1>About Us</h1>
+        <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap 
+        into electronic typesetting, remaining essentially unchanged. It was 
+        popularised in the 1960s with the release of Letraset sheets containing Lorem 
+        Ipsum passages, and more recently with desktop publishing software like Aldus 
+        PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text 
+        of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+        standard dummy text ever since the 1500s,when an unknown printer took a galley
+        of type and scrambled it to make a type specimen book. It has survived not only
+        five centuries, but also the leap into electronic typesetting, remaining essentially 
+        unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem 
+        Ipsum passages, and more recently with desktop publishing software like Aldus 
+        PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <h1>Gallery</h1>
       <div id="gallery">
-          
+          {galleryImages.map(i => 
+            <img src = {i} alt=""/>  
+          )}
       </div>
     </div>
   )

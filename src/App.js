@@ -2,13 +2,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from "react";
 import { Home, Shop, Login, RegisterVehicle, RegisterVendor,
    VehicleView, VendorView, AddShow, EditShow, AddItem, Checkout,
-  RegisterModel,About, CheckoutReview, Invoice } from './components/exports';
+  RegisterModel,About, CheckoutReview, Invoice, EditItem } from './components/exports';
 //service_393zopg
 const App = () => {
 
   const [cart, setCart] = useState({});
   const [items, setItems] = useState([]);
-
+  const [clothing,setClothing] = useState([]);
   const deleteItem = (id) => {
     setCart({...cart, [id]:0});
   };
@@ -17,7 +17,7 @@ const App = () => {
     <Router>
       <Routes>
           <Route path = '/' element = {<Home/>} />
-          <Route path = '/shop' element = {<Shop cart = {cart} items = {items} setItems = {setItems} setCart={setCart}/>} />
+          <Route path = '/shop' element = {<Shop cart = {cart} clothing = {clothing} setClothing={setClothing} items = {items} setItems = {setItems} setCart={setCart}/>} />
           <Route path = '/admin' element = {<Login/>} />
           <Route path = '/about' element = {<About/>} />
           <Route path = '/register-vehicle' element = {<RegisterVehicle/>} />
@@ -31,6 +31,7 @@ const App = () => {
           <Route path = '/checkout' element = {<Checkout cart = {cart} items = {items} handleRemove = {deleteItem} />} />
           <Route path = "/admin/request/orders/:id" element = {<CheckoutReview/>}/>
           <Route path = "/payments/:id" element = {<Invoice/>}/>
+          <Route path = "/admin/items/edit/:id" element = {<EditItem/>}/>
       </Routes>
     </Router>
   )

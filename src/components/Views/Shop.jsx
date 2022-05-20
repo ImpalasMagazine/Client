@@ -12,7 +12,7 @@ const Shop = ({requests}) => {
 
   const handleDelete = (item) => {
     setLoaded(false);
-    axios.delete(`http://localhost:5000/admin/shop`, {
+    axios.delete(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shop`, {
       headers: {
         'auth-token':localStorage.getItem('token')
       },

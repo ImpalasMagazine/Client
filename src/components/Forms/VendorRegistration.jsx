@@ -15,7 +15,7 @@ const VendorRegistration = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/shows")
+    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/shows")
     .then(res => {
       setShows(res.data);
       setLoaded(true);
@@ -37,7 +37,7 @@ const VendorRegistration = () => {
         booth = "foodTruck";
         break;
     }
-    axios.post("http://localhost:5000/register-vendor",{...form, booth:booth})
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/register-vendor",{...form, booth:booth})
     .then(res => {
       setLoaded(true);
       toast("Success. Application has been accepted.", {
@@ -140,7 +140,7 @@ const VendorRegistration = () => {
       <div className='form-section'>
           <h1>Vendor Notice</h1>
           <h3>Set Up: All vendors must be set up by 10:30am on the day of the show</h3>
-          <p>If your company is approved, you will be sent an invoice and terms and conditions regarding the event. All discounts will be reflected on invoice.</p>
+          <p>If your company is approved, you will be sent an invoice and terms and conditions regarding the event. All discounts will be reflected on invoice. By submitting this form you agree to our terms and conditions. For more info, visit the Terms link in the navigation bar.</p>
       </div>
       <button className = 'submit'>Submit</button>
     </form>

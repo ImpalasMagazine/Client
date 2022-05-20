@@ -12,7 +12,7 @@ const Show = ({requests}) => {
   const handleDelete = (show) => {
     
     setLoaded(false);
-    axios.post(`http://localhost:5000/admin/shows/${show._id}`,{},{
+    axios.post(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shows/${show._id}`,{},{
       headers: {
         "auth-token": localStorage.getItem("token")
       }

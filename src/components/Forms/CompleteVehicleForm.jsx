@@ -19,16 +19,16 @@ const CompleteVehicleForm = ({data}) => {
   const [loaded, setLoaded] = useState(false);
   const [invoice, setInvoice] = useState(0);
   useEffect(() => {
-    axios.get("http://localhost:5000/shows")
+    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/shows")
     .then(res => {
       setShows(res.data);
     }, rej => {console.log(rej)});
     if(data.img1 && data.img2){
-    axios.get(`http://localhost:5000/images/${data.img1}`)
+    axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/images/${data.img1}`)
     .then(res => {
       setImg1(res.data)
     }, err => {console.log(err)});
-    axios.get(`http://localhost:5000/images/${data.img2}`)
+    axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/images/${data.img2}`)
     .then(res => {
       setImg2(res.data)
     }, err => {console.log(err)});}
@@ -42,7 +42,7 @@ const CompleteVehicleForm = ({data}) => {
   const accept = (e) => {
     setLoaded(false);
     setRejection(false);
-    axios.post("http://localhost:5000/admin/requests/vehicles/accepted", {id:data._id,invoice:invoice},{
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests/vehicles/accepted", {id:data._id,invoice:invoice},{
       headers: {
         "auth-token": token
       }
@@ -62,7 +62,7 @@ const CompleteVehicleForm = ({data}) => {
   }
   const reject = (e) => {
     setLoaded(false);
-    axios.post("http://localhost:5000/admin/requests/vehicles/denied", {id:data._id,message:rejectMessage},{
+    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests/vehicles/denied", {id:data._id,message:rejectMessage},{
       headers: {
         "auth-token": token
       }

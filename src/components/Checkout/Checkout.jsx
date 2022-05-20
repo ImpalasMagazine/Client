@@ -31,7 +31,7 @@ const Checkout = ({cart, items, handleRemove}) => {
       tempItems[findItem(keyName).title] = cart[keyName];
     });
 
-    const response = await axios.post("http://localhost:5000/checkout", {
+    const response = await axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/checkout", {
       token,
       price,
       tempItems
