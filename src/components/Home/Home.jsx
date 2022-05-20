@@ -66,21 +66,12 @@ const Home = () => {
       <div id="about">
         <h1>About Us</h1>
         <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type
-        specimen book. It has survived not only five centuries, but also the leap 
-        into electronic typesetting, remaining essentially unchanged. It was 
-        popularised in the 1960s with the release of Letraset sheets containing Lorem 
-        Ipsum passages, and more recently with desktop publishing software like Aldus 
-        PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text 
-        of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-        standard dummy text ever since the 1500s,when an unknown printer took a galley
-        of type and scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting, remaining essentially 
-        unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem 
-        Ipsum passages, and more recently with desktop publishing software like Aldus 
-        PageMaker including versions of Lorem Ipsum.
+        Welcome to Impalas Magazines. We host the best of the best car shows with our customers best experience
+        in mind. We hope you find what you need here at Impalas Magazines. Our goal is to spread our joy and passion
+        for classic vehicles. We hope to provide a vessel for likeminded car enthusiasts to meet, interact, and enjoy
+        our passions together. Impalas Magazines hosts shows across California. Feel free to register for the upcoming
+        shows as a vendor or an individual looking to showcase your car. Please don't forget to stop by our shop to pick
+        up merchandise including magazines and clothing. If you have any questions please email vendor@impalasmagazine.com.
         </p>
       </div>
       <h1>Gallery</h1>
