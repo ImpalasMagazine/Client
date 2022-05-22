@@ -70,7 +70,7 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
   }
 
   const cFrameUp = () => {
-    frame === clothing.length - 1 ? setCFrame(0) : setCFrame(cFrame+1);
+    cFrame === clothing.length - 1 ? setCFrame(0) : setCFrame(cFrame+1);
   }
   const cFrameDown = () => {
     cFrame === 0 ? setCFrame(clothing.length - 1) : setCFrame(cFrame-1);
