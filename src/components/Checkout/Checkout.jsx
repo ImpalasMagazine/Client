@@ -7,11 +7,14 @@ import { toast }  from "react-toastify";
 
 toast.configure();
 
-const Checkout = ({cart, items, handleRemove}) => {
+const Checkout = ({cart, items, clothing, handleRemove}) => {
 
   const findItem = (id) => {
     let item;
     items.forEach(i => {
+      if(i._id === id) item = i;
+    });
+    clothing.forEach(i => {
       if(i._id === id) item = i;
     });
     return item;
@@ -61,7 +64,7 @@ const Checkout = ({cart, items, handleRemove}) => {
         <div className='checkout-controls'>
             <h2>Total: $ {price}</h2>
             <StripeCheckout
-              stripeKey='pk_live_51Kt7tlBUdDJl779XVZsjao5vPcjheUHbXuX2k2yEhsRMhZYVXqxDiiiV0rH6SCsXy4lfu4G6UsqUkkMrNDa9byyT00GUYxpcAn'
+              stripeKey='pk_test_51Kt7tlBUdDJl779XcABkEEie7phKsa0C4wHQrzX1Dmpxj4o4lE0NG9ARl58rV3k7hizlX4TF12h5HqDgzxSvzsP300gzLJw1Z3'
               token={handleToken}
               billingAddress
               shippingAddress

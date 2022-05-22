@@ -44,7 +44,7 @@ const Invoice = () => {
             <h2>Invoice Amount</h2>
             <input className = "lg" type="number" value = {request.invoice} required disabled/>
             <StripeCheckout
-              stripeKey='pk_live_51Kt7tlBUdDJl779XVZsjao5vPcjheUHbXuX2k2yEhsRMhZYVXqxDiiiV0rH6SCsXy4lfu4G6UsqUkkMrNDa9byyT00GUYxpcAn'
+              stripeKey='pk_test_51Kt7tlBUdDJl779XcABkEEie7phKsa0C4wHQrzX1Dmpxj4o4lE0NG9ARl58rV3k7hizlX4TF12h5HqDgzxSvzsP300gzLJw1Z3'
               token={handleToken}
               billingAddress
               shippingAddress

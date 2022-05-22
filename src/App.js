@@ -28,7 +28,7 @@ const App = () => {
           <Route path = '/admin/shows/add' element = {<AddShow/>} />
           <Route path = '/admin/shows/edit/:id' element = {<EditShow/>} />
           <Route path = '/admin/items/add' element = {<AddItem/>} />
-          <Route path = '/checkout' element = {<Checkout cart = {cart} items = {items} handleRemove = {deleteItem} />} />
+          <Route path = '/checkout' element = {<Checkout cart = {cart} clothing = {clothing} items = {items} handleRemove = {deleteItem} />} />
           <Route path = "/admin/request/orders/:id" element = {<CheckoutReview/>}/>
           <Route path = "/payments/:id" element = {<Invoice/>}/>
           <Route path = "/admin/items/edit/:id" element = {<EditItem/>}/>
