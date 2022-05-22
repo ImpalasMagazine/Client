@@ -14,7 +14,8 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
   const [frame, setFrame] = useState(0);
   const [cFrame,setCFrame] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(1);
+  const [cQty,setCQty] = useState(1);
   const values = [1,2,3,4,5,6,7,8,9,10];
 
   const [images, setImages] = useState({});
@@ -22,6 +23,10 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
   const newQty = (e) => {
     e.preventDefault();
     setQty(e.target.value);
+  }
+  const newQtyClothing = (e) => {
+    e.preventDefault();
+    setCQty(e.target.value);
   }
   useEffect(() => {
     axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/items")
@@ -94,6 +99,29 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
     localStorage.setItem('cart',cart);
   };
 
+  const addToCartClothes = (e) => {
+    e.preventDefault();
+    if(clothing[cFrame].stock < qty){
+      toast("There are not enough items in stock right now. Please try again later.",
+      {
+        position: toast.POSITION.TOP_LEFT,
+        draggable: false
+      });
+      return;
+    }
+    if(cart.hasOwnProperty(clothing[cFrame]._id)){
+      setCart({...cart,[clothing[cFrame]._id]:cart[clothing[cFrame]._id]+parseInt(qty,10)});
+    }
+    else {
+      setCart({...cart,[clothing[cFrame]._id]:parseInt(qty,10)});
+    }
+    toast("Item has been added to cart", {
+      position: toast.POSITION.TOP_LEFT,
+      draggable: false
+    });
+    localStorage.setItem('cart',cart);
+  };
+
   if(!loaded || items.length === 0) return <CarLoad/>
   return (
     <div className='shop'>
@@ -150,11 +178,11 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
           <h2>{clothing[cFrame].title}</h2>
           <div className='options'>
             <div className='select-container'>
-              <select onChange = {newQty} name = 'qty' className='qty'>
+              <select onChange = {newQtyClothing} name = 'qty' className='qty'>
                 {values.map(value => <option value={value}>{value}</option>)}
               </select>
             </div>
-            <button onClick = {addToCart} className='add'>Add to Cart</button>
+            <button onClick = {addToCartClothes} className='add'>Add to Cart</button>
           </div>
           <h3>In Stock: {clothing[cFrame].stock}</h3>
         </div>

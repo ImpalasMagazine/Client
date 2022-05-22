@@ -673,7 +673,7 @@ fieldset {
   align-items: center;
   grid-template-columns: 35% 35%;
   row-gap: 200px;
-  column-gap: 80px;
+  column-gap: 200px;
 }
 .shop .main .col-1 {
   display: flex;
@@ -1012,6 +1012,7 @@ fieldset {
   .shop .main {
     background: white;
     grid-template-columns: 100vw;
+    row-gap: 20px;
   }
   .carousel > img {
     box-shadow: 0 20px 10px grey;
