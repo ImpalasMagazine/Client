@@ -1012,6 +1012,7 @@ fieldset {
   }
   #about {
     padding: 40px 0 !important;
+    width: 100%;
   }
   /*Shop*/
   .shop .main {
