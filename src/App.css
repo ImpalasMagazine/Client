@@ -745,12 +745,14 @@ fieldset {
   display: flex;
   align-items: center;
 }
-.shop .select-container:before {
-  position: absolute;
-  content: "Qty";
-  font-family: "open sans";
-  color: #858585;
-  left: 2px;
+@media only screen and (min-width: 600px) {
+  .shop .select-container:before {
+    position: absolute;
+    content: "Qty";
+    font-family: "open sans";
+    color: #858585;
+    left: 2px;
+  }
 }
 .add {
   width: 150px;
