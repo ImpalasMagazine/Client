@@ -983,6 +983,7 @@ fieldset {
     display: flex;
     justify-content: center;
     padding: 10px !important;
+    max-height: 25px;
   }
   .gallery-link {
     color: black;
