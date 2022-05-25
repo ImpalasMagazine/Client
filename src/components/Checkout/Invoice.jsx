@@ -12,7 +12,7 @@ const Invoice = () => {
 
   useEffect(() => {
     if(request) return;
-    axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/invoice/${id}`)
+    axios.get(`https://temp-impalas-server.herokuapp.com/invoice/${id}`)
     .then(res => {
         setRequest(res.data);
     }, rej => console.log(rej));
@@ -20,7 +20,7 @@ const Invoice = () => {
 
   const handleToken = (token,addresses) => {
     const price = request.invoice;
-    axios.post(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/invoice/${id}`, {price, token})
+    axios.post(`https://temp-impalas-server.herokuapp.com/invoice/${id}`, {price, token})
     .then(res => {
         console.log(res);
         if(res.data === "success"){
@@ -44,7 +44,7 @@ const Invoice = () => {
             <h2>Invoice Amount</h2>
             <input className = "lg" type="number" value = {request.invoice} required disabled/>
             <StripeCheckout
-              stripeKey='pk_test_51Kt7tlBUdDJl779XcABkEEie7phKsa0C4wHQrzX1Dmpxj4o4lE0NG9ARl58rV3k7hizlX4TF12h5HqDgzxSvzsP300gzLJw1Z3'
+              stripeKey='pk_live_51Kt7tlBUdDJl779XVZsjao5vPcjheUHbXuX2k2yEhsRMhZYVXqxDiiiV0rH6SCsXy4lfu4G6UsqUkkMrNDa9byyT00GUYxpcAn'
               token={handleToken}
               billingAddress
               shippingAddress

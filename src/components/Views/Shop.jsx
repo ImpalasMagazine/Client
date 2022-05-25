@@ -12,7 +12,7 @@ const Shop = ({requests}) => {
 
   const handleDelete = (item) => {
     setLoaded(false);
-    axios.delete(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shop`, {
+    axios.delete(`https://temp-impalas-server.herokuapp.com/admin/shop`, {
       headers: {
         'auth-token':localStorage.getItem('token')
       },

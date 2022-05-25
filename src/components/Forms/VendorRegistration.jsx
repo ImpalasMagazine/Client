@@ -15,7 +15,7 @@ const VendorRegistration = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/shows")
+    axios.get("https://temp-impalas-server.herokuapp.com/shows")
     .then(res => {
       setShows(res.data);
       setLoaded(true);
@@ -37,7 +37,7 @@ const VendorRegistration = () => {
         booth = "foodTruck";
         break;
     }
-    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/register-vendor",{...form, booth:booth})
+    axios.post("https://temp-impalas-server.herokuapp.com/register-vendor",{...form, booth:booth})
     .then(res => {
       setLoaded(true);
       toast("Success. Application has been accepted.", {

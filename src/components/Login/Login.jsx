@@ -16,7 +16,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     setLoading(true);
-    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/login",{username:form.username,password:form.password})
+    axios.post("https://temp-impalas-server.herokuapp.com/admin/login",{username:form.username,password:form.password})
       .then(res => {
         setToken(res.data.token)
         localStorage.setItem('token',res.data.token);
@@ -36,7 +36,7 @@ const Login = () => {
 
   useEffect(() => {
     if(token) setLoading(true);
-    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests",{
+    axios.get("https://temp-impalas-server.herokuapp.com/admin/requests",{
       headers: {
         "auth-token": token
       }

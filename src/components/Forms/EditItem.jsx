@@ -13,7 +13,7 @@ const EditItem = () => {
   const [loaded, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/items/${id}`, {
+    axios.get(`https://temp-impalas-server.herokuapp.com/admin/items/${id}`, {
         headers: {
             'auth-token': localStorage.getItem("token")
         }
@@ -30,7 +30,7 @@ const EditItem = () => {
   const handleSubmit = (e) => {
     setLoading(true);
 
-    axios.post(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/items/edit/${id}`, form, {
+    axios.post(`https://temp-impalas-server.herokuapp.com/admin/items/edit/${id}`, form, {
         headers: {
             'auth-token':localStorage.getItem("token")
         }

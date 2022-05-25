@@ -25,7 +25,7 @@ const VehicleRegistration = () => {
       data.append(key, form[key]);
     }
 
-    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/register-vehicle",data, {
+    axios.post("https://temp-impalas-server.herokuapp.com/register-vehicle",data, {
       header: {
         contentType: "multipart/form-data"
       }
@@ -48,7 +48,7 @@ const VehicleRegistration = () => {
 
 
   useEffect(() => {
-    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/shows")
+    axios.get("https://temp-impalas-server.herokuapp.com/shows")
     .then(res => {
       setShows(res.data);
       setLoaded(true);

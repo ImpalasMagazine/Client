@@ -9,7 +9,7 @@ const AddShow = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shows",form,{
+    axios.post("https://temp-impalas-server.herokuapp.com/admin/shows",form,{
       headers: {
         'auth-token': localStorage.getItem('token')
       }

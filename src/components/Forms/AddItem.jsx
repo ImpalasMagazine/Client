@@ -20,7 +20,7 @@ const AddItem = () => {
       data.append(key, form[key]);
     }
     console.log(data);
-    axios.post("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/shop", data, {
+    axios.post("https://temp-impalas-server.herokuapp.com/admin/shop", data, {
       headers:{
         'auth-token': localStorage.getItem('token')
       }

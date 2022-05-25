@@ -8,7 +8,7 @@ const VendorView = () => {
   const [data, setData] = useState({});
   const token = localStorage.getItem('token');
 
-  axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/admin/requests/vendors/${id}`,{
+  axios.get(`https://temp-impalas-server.herokuapp.com/admin/requests/vendors/${id}`,{
       headers: {
         "auth-token": token
       }

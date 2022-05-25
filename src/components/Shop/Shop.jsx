@@ -29,7 +29,7 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
     setCQty(e.target.value);
   }
   useEffect(() => {
-    axios.get("http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/items")
+    axios.get("https://temp-impalas-server.herokuapp.com/items")
     .then(res => {
       setItems(res.data.filter(item => !item.clothing));
       setClothing(res.data.filter(item => item.clothing));
@@ -40,7 +40,7 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
     if(images.length === items.length) return;
     items.forEach(item => {
       if(!item.clothing){
-      axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/images/${item.img}`)
+      axios.get(`https://temp-impalas-server.herokuapp.com/images/${item.img}`)
         .then(res => {
           if(!images.hasOwnProperty(item._id)) setImages({...images,[item._id]:res.data})
           setLoaded(true);
@@ -53,7 +53,7 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
     if(clothingImages.length === clothing.length) return;
     clothing.forEach(item => {
       if(item.clothing){
-      axios.get(`http://server-env.eba-23ey8bmy.us-west-1.elasticbeanstalk.com/images/${item.img}`)
+      axios.get(`https://temp-impalas-server.herokuapp.com/images/${item.img}`)
         .then(res => {
           if(!clothingImages.hasOwnProperty(item._id)) setClothingImages({...clothingImages,[item._id]:res.data})
           setLoaded(true);
@@ -101,7 +101,7 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
 
   const addToCartClothes = (e) => {
     e.preventDefault();
-    if(clothing[cFrame].stock < qty){
+    if(clothing[cFrame].stock < cQty){
       toast("There are not enough items in stock right now. Please try again later.",
       {
         position: toast.POSITION.TOP_LEFT,
@@ -110,10 +110,10 @@ const Shop = ({cart, setCart, items, setItems,clothing,setClothing}) => {
       return;
     }
     if(cart.hasOwnProperty(clothing[cFrame]._id)){
-      setCart({...cart,[clothing[cFrame]._id]:cart[clothing[cFrame]._id]+parseInt(qty,10)});
+      setCart({...cart,[clothing[cFrame]._id]:cart[clothing[cFrame]._id]+parseInt(cQty,10)});
     }
     else {
-      setCart({...cart,[clothing[cFrame]._id]:parseInt(qty,10)});
+      setCart({...cart,[clothing[cFrame]._id]:parseInt(cQty,10)});
     }
     toast("Item has been added to cart", {
       position: toast.POSITION.TOP_LEFT,
