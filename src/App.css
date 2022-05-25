@@ -1010,6 +1010,9 @@ fieldset {
   .form-section input[type="file"] {
     color: transparent;
   }
+  #about {
+    padding: 40px 0 !important;
+  }
   /*Shop*/
   .shop .main {
     background: white;
