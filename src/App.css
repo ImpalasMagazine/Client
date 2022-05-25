@@ -954,7 +954,7 @@ fieldset {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw !important;
+    width: 100% !important;
   }
   .home .main {
     display: flex;
